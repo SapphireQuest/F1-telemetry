@@ -1,5 +1,6 @@
 from urllib.request import urlopen
 import json
+import os
 
 
 def fetch_api_data(url):
@@ -13,6 +14,11 @@ def fetch_api_data(url):
 
 
 def save_to_json(data, path):
+    directory = os.path.dirname(path) 
+
+    if directory: 
+        os.makedirs(directory, exist_ok=True)
+        
     with open(path, 'w') as f:
         json.dump(data, f)
 
