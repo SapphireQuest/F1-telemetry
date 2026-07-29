@@ -1,0 +1,23 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: #333;
+}
+
+.driver_card
+{
+    margin: 0px 15px 10px 15px;
+    color: white;
+    border-radius: 20px;
+}  
+
+.driver_name
+{
+    border: solid 2px red
+}

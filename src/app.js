@@ -19,11 +19,17 @@ const displayDriverStandingsData = (data) => {
         const {first_name, last_name, name_acronym, number,photo_url, points, position, team_color, team_name} = driver;
         const driverDiv = document.createElement("div");
         driverDiv.innerHTML = `
-            <p>${position}. ${name_acronym}</p>
-            <p>${first_name} ${last_name}</p>
-            <p>${points}</p>
-            <hr>
+            <div class="driver_name">
+                <h1>${first_name} ${last_name}</h1>
+            </div>
+            <div class="driver_points>
+                <h1>${points}</h1>
+            </div>
+
         `;
+        driverDiv.classList.add("driver_card");
+        card_color = `#${team_color}`;
+        driverDiv.style.backgroundColor = card_color;
         drivers_standings_div.appendChild(driverDiv);
     }
 };
@@ -31,7 +37,6 @@ const displayDriverStandingsData = (data) => {
 
 const handleDriverStandings = async () => {
     const data = await getDriverStandingsData();
-    console.log(data)
     displayDriverStandingsData(data);
 };
 
