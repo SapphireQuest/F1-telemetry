@@ -8,7 +8,7 @@ const getDriverStandingsData = async () => {
         return;
     }
 
-    const data = await response.json();;
+    const data = await response.json();
     return data;
 };
 
@@ -20,15 +20,19 @@ const displayDriverStandingsData = (data) => {
         const driverDiv = document.createElement("div");
         driverDiv.innerHTML = `
             <div class="driver_name">
-                <h1>${first_name} ${last_name}</h1>
+                <p>${position}. ${first_name} ${last_name} | ${team_name}</p>
             </div>
-            <div class="driver_points>
-                <h1>${points}</h1>
+            <div class="points_and_photo_flexbox">    
+                <div class="driver_points">
+                    <p>${points}</p>
+                </div>
+                <div class="driver_image_div">
+                    <img src="${photo_url}">
+                </div>
             </div>
-
-        `;
+            `;
         driverDiv.classList.add("driver_card");
-        card_color = `#${team_color}`;
+        const card_color = `#${team_color}`;
         driverDiv.style.backgroundColor = card_color;
         drivers_standings_div.appendChild(driverDiv);
     }

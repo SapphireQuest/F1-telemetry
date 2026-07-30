@@ -10,14 +10,86 @@ body
     background-color: #333;
 }
 
+header
+{
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    min-height: 100px;
+}
+
+footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(28, 28, 31);
+    min-height: 4rem;
+    height: 5vh;
+    margin-top: 15px;
+}
+
+nav
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    gap: 10rem;
+    color: white;
+}
+
+.driver_standings
+{
+    max-width: 800px;
+    margin: 0 auto;
+    width: 75%;
+}
+
 .driver_card
 {
     margin: 0px 15px 10px 15px;
     color: white;
     border-radius: 20px;
+    display: flex;
+    height: 8vh;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 6rem;
 }  
+
+.driver_card p
+{
+    font-size: 2rem;
+}
+
+.points_and_photo_flexbox
+{
+    display: flex;
+    align-items: center;
+}
 
 .driver_name
 {
-    border: solid 2px red
+    padding-left: 1rem;
+}
+
+.driver_points
+{
+
+}
+
+.driver_image_div
+{
+    margin-right: 15px;
+}
+
+.driver_image_div img
+{
+    max-height: 4.5rem;
+    width: auto;
+    object-fit: contain;
 }
