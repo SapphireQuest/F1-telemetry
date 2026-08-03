@@ -1,5 +1,8 @@
-const drivers_standings_div = document.querySelector(".driver_standings");
+const driver_standings_div = document.querySelector(".driver-standings");
+const team_standings_div = document.querySelector(".team-standings");
 
+const btn_driver_standings = document.querySelector("#btn-driver-standings");
+const btn_team_standings = document.querySelector("#btn-team-standings");
 
 const getDriverStandingsData = async () => {
     const response = await fetch('./src/data/drivers_standings.json');
@@ -34,15 +37,31 @@ const displayDriverStandingsData = (data) => {
         driverDiv.classList.add("driver_card");
         const card_color = `#${team_color}`;
         driverDiv.style.backgroundColor = card_color;
-        drivers_standings_div.appendChild(driverDiv);
+        driver_standings_div.appendChild(driverDiv);
     }
 };
-
 
 const handleDriverStandings = async () => {
     const data = await getDriverStandingsData();
     displayDriverStandingsData(data);
     ScrollReveal().reveal('.driver_card');
 };
+
+btn_driver_standings.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    team_standings_div.classList.add("hidden");
+    driver_standings_div.classList.remove("hidden");
+});
+
+
+btn_team_standings.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    team_standings_div.classList.remove("hidden");
+    driver_standings_div.classList.add("hidden");
+});
+
+
 
 handleDriverStandings();
