@@ -47,12 +47,22 @@ nav
     color: white;
 }
 
-.driver_standings
+.driver-standings
 {
     max-width: 800px;
     margin: 0 auto;
     width: 75%;
 }
+
+
+
+.team-standings
+{
+    max-width: 800px;
+    margin: 0 auto;
+    width: 75%;
+}
+
 
 .driver_card
 {
@@ -65,6 +75,35 @@ nav
     align-items: center;
     min-height: 6rem;
 }  
+
+
+.team_card
+{
+    margin: 0px 15px 10px 15px;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    height: 8vh;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 6rem;
+}  
+
+.team_card p
+{
+    font-size: 2rem;
+}
+
+.team_name
+{
+    padding-left: 1rem;
+}
+
+.team_points
+{
+   padding-right: 2rem;
+}
+
 
 .driver_card p
 {

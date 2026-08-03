@@ -16,7 +16,6 @@ const getDriverStandingsData = async () => {
 };
 
 const displayDriverStandingsData = (data) => {
-    console.log(data);
     for (const driver of data)
     {
         const {first_name, last_name, name_acronym, number,photo_url, points, position, team_color, team_name} = driver;
@@ -41,10 +40,46 @@ const displayDriverStandingsData = (data) => {
     }
 };
 
+
+const getTeamStandingsData = async () => {
+    const response = await fetch('./src/data/team_standings.json');
+    if (!response.ok)
+    {
+        return;
+    }
+
+    const data = await response.json();
+    return data;
+};
+
+const displayTeamStandingsData = (data) => {
+    for (const team of data)
+    {
+        const {name, color, position, points} = team
+        const teamDiv = document.createElement("div");
+        teamDiv.innerHTML = `
+            <div class="team_name">
+                <p>${position}. ${name}</p>
+            </div>
+            <div class="team_points">
+                <p>${points}</p>
+            </div> 
+            `;
+        teamDiv.classList.add("team_card");
+        const card_color = `#${color}`;
+        teamDiv.style.backgroundColor = card_color;
+        team_standings_div.appendChild(teamDiv);
+    }
+};
+
+const handleTeamStandings = async () => {
+    const data = await getTeamStandingsData();
+    displayTeamStandingsData(data);
+};
+
 const handleDriverStandings = async () => {
     const data = await getDriverStandingsData();
     displayDriverStandingsData(data);
-    ScrollReveal().reveal('.driver_card');
 };
 
 btn_driver_standings.addEventListener('click', (event) => {
@@ -65,3 +100,4 @@ btn_team_standings.addEventListener('click', (event) => {
 
 
 handleDriverStandings();
+handleTeamStandings();
