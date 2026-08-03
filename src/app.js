@@ -42,6 +42,7 @@ const displayDriverStandingsData = (data) => {
 const handleDriverStandings = async () => {
     const data = await getDriverStandingsData();
     displayDriverStandingsData(data);
+    ScrollReveal().reveal('.driver_card');
 };
 
 handleDriverStandings();
