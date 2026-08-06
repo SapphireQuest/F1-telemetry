@@ -10,6 +10,12 @@
     display: none !important; 
 }
 
+nav a.active
+{
+    color: red;
+    cursor: default;
+}
+
 body
 {
     background-color: #333;
@@ -52,25 +58,16 @@ nav a
     text-decoration: none;
     color: white; 
     cursor: pointer;
-
+    transition: color 0.2s ease-in-out;
 }
 
-nav a:hover
+nav a:not(.active):hover
 {
-    color: rgb(138, 25, 5) !important;
+    color: rgb(138, 25, 5);
 }
 
 
-.driver-standings
-{
-    max-width: 800px;
-    margin: 0 auto;
-    width: 75%;
-}
-
-
-
-.team-standings
+.team-standings, .driver-standings
 {
     max-width: 800px;
     margin: 0 auto;
@@ -78,9 +75,9 @@ nav a:hover
 }
 
 
-.driver_card
+.team_card, .driver_card
 {
-    margin: 0px 15px 10px 15px;
+    margin: 0 15px 10px 15px;
     color: white;
     border-radius: 20px;
     display: flex;
@@ -90,20 +87,7 @@ nav a:hover
     min-height: 6rem;
 }  
 
-
-.team_card
-{
-    margin: 0px 15px 10px 15px;
-    color: white;
-    border-radius: 20px;
-    display: flex;
-    height: 8vh;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 6rem;
-}  
-
-.team_card p
+.team_card p, .driver_card p
 {
     font-size: 2rem;
 }
@@ -119,10 +103,6 @@ nav a:hover
 }
 
 
-.driver_card p
-{
-    font-size: 2rem;
-}
 
 .points_and_photo_flexbox
 {
@@ -133,11 +113,6 @@ nav a:hover
 .driver_name
 {
     padding-left: 1rem;
-}
-
-.driver_points
-{
-
 }
 
 .driver_image_div

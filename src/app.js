@@ -80,6 +80,7 @@ const handleTeamStandings = async () => {
 const handleDriverStandings = async () => {
     const data = await getDriverStandingsData();
     displayDriverStandingsData(data);
+    btn_driver_standings.classList.add("active");
 };
 
 btn_driver_standings.addEventListener('click', (event) => {
@@ -87,9 +88,8 @@ btn_driver_standings.addEventListener('click', (event) => {
 
     team_standings_div.classList.add("hidden");
     driver_standings_div.classList.remove("hidden");
-
-    btn_driver_standings.style.color = "Red";
-    btn_team_standings.style.color = "White";
+    btn_team_standings.classList.remove("active");
+    btn_driver_standings.classList.add("active");
 });
 
 
@@ -98,9 +98,8 @@ btn_team_standings.addEventListener('click', (event) => {
 
     team_standings_div.classList.remove("hidden");
     driver_standings_div.classList.add("hidden");
-
-    btn_driver_standings.style.color = "White";
-    btn_team_standings.style.color = "Red";
+    btn_team_standings.classList.add("active");
+    btn_driver_standings.classList.remove("active");
 });
 
 
